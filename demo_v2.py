@@ -8,6 +8,7 @@ from torchvision import transforms, models, datasets, utils
 from PIL import Image
 import altair as alt
 from collections import OrderedDict
+import gc
 
 st.title('Lipohypertrophy Prediction')
 
@@ -21,6 +22,7 @@ new_layers = nn.Sequential(OrderedDict([
 cnn_model.classifier = new_layers
 
 cnn_model.load_state_dict(torch.load('densemodels.pth', map_location=torch.device('cpu'))) #put the directory here where cnn_model.pt is located
+torch.set_grad_enabled(False)
 cnn_model.eval()
 left_column, right_column = st.beta_columns(2)
 
@@ -69,6 +71,7 @@ if len(uploaded_file)>0:
     left_column = st.empty()
     with left_column:
         pos, neg, pred = get_prediction(option)
+        gc.collect()
     with right_column:
         display_results(pos, neg, pred)       
 else:
