@@ -1,9 +1,8 @@
 import streamlit as st
 import pandas as pd
 import torch
-import torchvision
-from torch import nn, optim
-from torchvision import transforms, models, datasets, utils
+from torch import nn
+from torchvision import transforms, models
 from PIL import Image
 import altair as alt
 from collections import OrderedDict
