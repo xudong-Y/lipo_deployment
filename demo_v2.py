@@ -63,7 +63,7 @@ def display_results(image, pos, neg):
         title={
             'text': "<b>Prediction Confidence<b>",
             'y':0.99,
-            'x':0.5,
+            'x':0.28,
             'xanchor': 'center',
             'yanchor': 'top'},
             title_font = {'size': 17},
