@@ -19,7 +19,7 @@ new_layers = nn.Sequential(OrderedDict([
         ]))
 cnn_model.classifier = new_layers
 
-cnn_model.load_state_dict(torch.load('test_auto/models/densemodels.pth')) #put the directory here where cnn_model.pt is located
+cnn_model.load_state_dict(torch.load('densemodels.pth')) #put the directory here where cnn_model.pt is located
 cnn_model.eval()
 
 #make prediction
