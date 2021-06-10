@@ -113,7 +113,7 @@ def display_results(img, pos, neg, xmin = None, ymin = None, xmax = None, ymax =
         figure = px.imshow(img)
         figure.update_xaxes({'showgrid': False, 'visible': False})
         figure.update_yaxes({'showgrid': False, 'visible': False})
-        figure.update_layout(width = 500)
+        figure.update_layout(width = 500, margin=dict(l=0, r=120, t=5, b=40, pad = 0))
         right_column.plotly_chart(figure, config={"displayModeBar": False})
         left_column.text(" \n")
         left_column.plotly_chart(fig, use_container_width = False, config={"displayModeBar": False})
