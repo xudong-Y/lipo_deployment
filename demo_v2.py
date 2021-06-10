@@ -6,9 +6,9 @@ from PIL import Image
 from collections import OrderedDict
 import plotly.graph_objects as go
 import plotly.express as px
-import os
+# import os
 
-os.environ["KMP_DUPLICATE_LIB_OK"] = "True"
+# os.environ["KMP_DUPLICATE_LIB_OK"] = "True"
 
 torch.autograd.set_grad_enabled(False)
 
@@ -101,6 +101,7 @@ def display_results(img, pos, neg, xmin = None, ymin = None, xmax = None, ymax =
         figure = px.imshow(img)
         figure.update_xaxes({'showgrid': False, 'visible': False})
         figure.update_yaxes({'showgrid': False, 'visible': False})
+        figure.update_layout(width = 500, margin=dict(l=0, r=120, t=5, b=40, pad = 0))
         figure.add_shape(type="rect",
             x0=xmin, y0=ymin, x1=xmax, y1=ymax,
             line=dict(color="red"),
@@ -112,6 +113,7 @@ def display_results(img, pos, neg, xmin = None, ymin = None, xmax = None, ymax =
         figure = px.imshow(img)
         figure.update_xaxes({'showgrid': False, 'visible': False})
         figure.update_yaxes({'showgrid': False, 'visible': False})
+        figure.update_layout(width = 500)
         right_column.plotly_chart(figure, config={"displayModeBar": False})
         left_column.text(" \n")
         left_column.plotly_chart(fig, use_container_width = False, config={"displayModeBar": False})
